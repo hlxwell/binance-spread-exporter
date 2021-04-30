@@ -23,6 +23,21 @@ make build
 
 ## PromQL
 
+Output format of exporter
+
+```
+spread{symbol="BTCUSDT"} 0.01000000 
+delta{symbol="BTCUSDT"} 0.00000000 
+spread{symbol="BNBUSDT"} 0.01000000 
+delta{symbol="BNBUSDT"} 0.00000000 
+spread{symbol="ETHUSDT"} 0.01000000 
+delta{symbol="ETHUSDT"} 0.00000000 
+spread{symbol="BUSDUSDT"} 0.00010000 
+delta{symbol="BUSDUSDT"} 0.00000000 
+spread{symbol="DOGEUSDT"} 0.00001000 
+delta{symbol="DOGEUSDT"} 0.00000000
+```
+
 - List all the spread of a specific pair.
 ```
 spread{symbol="BTCUSDT"}
@@ -32,3 +47,8 @@ spread{symbol="BTCUSDT"}
 ```
 delta{symbol="BTCUSDT"}
 ```
+
+## TODO
+
+1. Test code for Depth, Ticker.
+2. API auto failure over.
