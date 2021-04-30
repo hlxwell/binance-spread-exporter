@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-const FetchDuration = 1 * time.Second
+const FetchDuration = 10 * time.Second
 
 // latest spread of each symbol
 var LatestSymbolSpread = make(map[string]float64)
