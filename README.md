@@ -10,11 +10,12 @@
 make run
 ```
 
-or
+## How bulid
 
 ```
 make build
 ```
+
 
 ## PromQL
 
@@ -49,9 +50,7 @@ delta{symbol="BTCUSDT"}
 
 ## TODO
 
-1. Test code for Depth, Ticker.
-2. API auto failure over.
-
+1. API auto failure over.
 
 ## API is used
 
