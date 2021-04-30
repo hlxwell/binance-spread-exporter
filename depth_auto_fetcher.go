@@ -8,12 +8,6 @@ import (
 
 const FetchDuration = 10 * time.Second
 
-// latest spread of each symbol
-var LatestSymbolSpread = make(map[string]float64)
-
-// all pairs spread delta.
-var SpreadDelta = make(map[string]float64)
-
 // Fetch all pairs
 func DepthAutoFetcher(pairs []string) {
 	client := BinanceClient{}
