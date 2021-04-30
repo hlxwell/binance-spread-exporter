@@ -15,8 +15,8 @@ func main() {
 	var top5BtcPairs []string
 	var top5UsdtPairs []string
 
-	client := BinanceClient{}
-	tickerList, _ := client.FetchDayTickerList()
+	tickerList := &TickerList{}
+	tickerList.Load()
 
 	// Print TOP 5 BTC pairs
 	fmt.Println("TOP 5 BTC pairs:")

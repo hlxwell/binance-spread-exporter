@@ -40,6 +40,15 @@ type SymbolVol struct {
 	QuoteVolume float64
 }
 
+func (list *TickerList) Load() {
+	client := BinanceClient{}
+	tickers, err := client.FetchDayTickerList()
+	if err != nil {
+		panic(err)
+	}
+	list.Tickers = tickers
+}
+
 // List Top 5 volume in given symbol.
 // Usage: Top5VolIn("BTC")
 func (list TickerList) Top5VolIn(baseSymbol string) []*SymbolVol {

@@ -13,23 +13,23 @@ import (
 type BinanceClient struct{}
 
 // Fetch ticker by 24 hrs.
-func (client BinanceClient) FetchDayTickerList() (TickerList, error) {
+func (client BinanceClient) FetchDayTickerList() ([]Ticker, error) {
 	resp, err := http.Get("https://api.binance.com/api/v3/ticker/24hr")
 	if err != nil {
 		fmt.Println("Error when fetching top vol: ", err)
-		return TickerList{}, err
+		return nil, err
 	}
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("Error when reading body: ", err)
-		return TickerList{}, err
+		return nil, err
 	}
 
 	var tickers []Ticker
 	json.Unmarshal(body, &tickers)
-	return TickerList{Tickers: tickers}, nil
+	return tickers, nil
 }
 
 // Fetch depth in order book by given symbol.
