@@ -23,6 +23,10 @@ make build
 
 ## PromQL
 
+Metrics provided at:
+
+`http://localhost:8080/metrics`
+
 Output format of exporter
 
 ```
