@@ -18,6 +18,13 @@ const (
 	Asks OrderType = 1
 )
 
+func (depth *Depth) Load(pair string) {
+	client := BinanceClient{}
+	newDepth, _ := client.FetchPairDepth(pair)
+	depth.Asks = newDepth.Asks
+	depth.Bids = newDepth.Bids
+}
+
 // TopNotionalValue
 func (depth Depth) TopNotionalValue(limit int, orderType OrderType) float64 {
 	if len(depth.Bids) < 200 || len(depth.Asks) < 200 {

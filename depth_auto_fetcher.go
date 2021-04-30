@@ -10,14 +10,14 @@ const FetchDuration = 10 * time.Second
 
 // Fetch all pairs
 func DepthAutoFetcher(pairs []string) {
-	client := BinanceClient{}
+	depth := &Depth{}
 
 	for x := range time.Tick(FetchDuration) {
 		fmt.Println("Updated at ", x)
 
 		// actual fetching data from pair depth, and calculate spread and delta
 		for _, pair := range pairs {
-			depth, _ := client.FetchPairDepth(pair)
+			depth.Load(pair)
 			SpreadDelta[pair] = math.Abs(LatestSymbolSpread[pair] - depth.Spread())
 			LatestSymbolSpread[pair] = depth.Spread()
 			fmt.Printf(
